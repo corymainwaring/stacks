@@ -1,4 +1,4 @@
-package main
+package stack
 
 import (
 	"fmt"
@@ -77,7 +77,7 @@ func (a ByLeastDependent) Less(i, j int) bool {
 	return a[i].CountDependencies() < a[j].CountDependencies()
 }
 
-func NewStack() *Stack {
+func New() *Stack {
 	result := new(Stack)
 	result.Sections = make(map[string][]*StackEntry, 0)
 	return result
@@ -100,8 +100,8 @@ func (s Stack) Format(f fmt.State, c rune) {
 	}
 }
 
-func LoadStack(f io.Reader) *Stack {
-	result := NewStack()
+func Load(f io.Reader) *Stack {
+	result := New()
 
 	data, err := io.ReadAll(f)
 	if err != nil {
