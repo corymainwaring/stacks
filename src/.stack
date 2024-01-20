@@ -1,0 +1,38 @@
+# To Do
+
+
+## Set up flags for if the program was the last to touch the file
+
+If a human touched the file last, then we need to load it safely, with sorting and write it back out.
+If a program did, then we can assume all is well and skip the sorting and modifications. In order
+to detect if a program or human touched it last, make an ignored line at the end of the file that
+contains the timestamp and program that modified it. If it matches with os.Stat, then we're good
+to go.
+
+# In Progress
+
+# Done
+
+## Play with file format [pwff]
+
+The file format could be markdown-esque with headers defining tasks and descriptions written in markdown
+format so that display can be pretty good in text (and easily diffable) while not being too terribly
+difficult to parse
+
+## Determine file format [ddf]
+
+The file format of a stack needs to be defined
+
+Dependent On: [pwff] [br]
+
+## Build reader [br]
+
+Reader needs to be able to read the file format into a struct
+
+Dependent On: [ddf]
+
+## Build writer [bw]
+
+Writer needs to be able to write the file format based on in-memory representation
+
+Dependent On: [ddf] [pwff]
